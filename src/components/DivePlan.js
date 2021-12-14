@@ -141,9 +141,10 @@ function DivePlan() {
                 <Link to="/secondDive">
                     <button>Plan Your Second Dive</button>
                 </Link>
+                {/* Conditionally render the enter your name input if the user decides to save their first dive data.  */}
                 {saveDiveButton ? (
                   <div>
-                    <label htmlFor="name">Enter Your Name:</label>
+                    <label htmlFor="name">Enter Your Name To Save Your Dive Information:</label>
                     <input
                       type="text"
                       id="name"
