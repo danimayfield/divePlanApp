@@ -6,6 +6,8 @@ import DiveBook from "./components/DiveBook";
 import Landing from "./components/Landing";
 import SecondDivePlan from "./components/SecondDivePlan";
 
+import logo from "./assets/divePlanLogo.png"
+
 function App() {
   // state to hold user depth choice
   const [depthChoice, setDepthChoice] = useState(0);
@@ -102,9 +104,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
+      <header>
         <Link to="/">
-          <h1>My Dive Plan Logo</h1>
+          <img src={logo} alt="My Dive Plan Logo" />
         </Link>
         <nav>
           <ul>
@@ -116,7 +118,7 @@ function App() {
             </Link>
           </ul>
         </nav>
-      </div>
+      </header>
       <Routes>
         <Route path="/*" element={<Landing />} />
         <Route

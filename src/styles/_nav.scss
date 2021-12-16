@@ -1,0 +1,22 @@
+header {
+    background-color: #02304750 ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1rem;
+    img {
+        width: 30%;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        
+        li {
+            margin: 1rem;
+        }
+    }
+}
