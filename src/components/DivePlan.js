@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 function DivePlan(props) {
   // State to hold whether the user selected to save their dive information or not
   const [saveDiveButton, setSaveDiveButton] = useState(false);
+  // State to hold which button has been chosen for the depth
+  const [depthActive, setDepthActive] = useState("");
+  // State to hold which button has been chosen for the time
+  const [timeActive, setTimeActive] = useState("");
 
   // array of depth options
   const depthOptions = [10, 14, 18, 22, 25, 30];
@@ -33,8 +37,8 @@ function DivePlan(props) {
     addToDatabase();
     // Reset the name state - resetting the name input
     props.setName("");
-
-    alert("Your dive information is saved in the Dive Book!")
+    // Alert the user that their dive information has been saved
+    alert("Your dive information is saved in the Dive Book!");
   };
 
   // function to add/push information to be saved in firebase
@@ -71,19 +75,27 @@ function DivePlan(props) {
         <div className="depth">
           <h3>Choose Your Depth:</h3>
           {/* map through the depthOptions array and return each option as a button */}
-          <div className="deptButtons">
+          <div className="depthButtons">
             {depthOptions.map((depth) => {
               return (
-                <input
-                  key={depth}
-                  type="button"
-                  id={`${depth}m`}
-                  value={`${depth}m`}
-                  onClick={() => {
-                    props.setDepthChoice(depth);
-                  }}
-                  className="option"
-                />
+                <>
+                  <label htmlFor={`${depth}m`} className="visuallyHidden">
+                    {depth}m
+                  </label>
+                  <input
+                    key={depth}
+                    type="button"
+                    id={`${depth}m`}
+                    value={`${depth}m`}
+                    onClick={() => {
+                      props.setDepthChoice(depth);
+                      setDepthActive(depth);
+                    }}
+                    className={`option ${
+                      depthActive === depth ? "active" : null
+                    }`}
+                  />
+                </>
               );
             })}
           </div>
@@ -97,16 +109,24 @@ function DivePlan(props) {
               <div className="timeOptions">
                 {timeUnderwater.map((time) => {
                   return (
-                    <input
-                      key={time}
-                      type="button"
-                      id={`${time}mins`}
-                      value={`${time}mins`}
-                      onClick={() => {
-                        props.setTimeChoice(time);
-                      }}
-                      className="option"
-                    />
+                    <>
+                      <label htmlFor={`${time}mins`} className="visuallyHidden">
+                        {time}mins
+                      </label>
+                      <input
+                        key={time}
+                        type="button"
+                        id={`${time}mins`}
+                        value={`${time}mins`}
+                        onClick={() => {
+                          props.setTimeChoice(time);
+                          setTimeActive(time);
+                        }}
+                        className={`option ${
+                          timeActive === time ? "active" : null
+                        }`}
+                      />
+                    </>
                   );
                 })}
               </div>
@@ -140,39 +160,47 @@ function DivePlan(props) {
                     </Link>
                     {/* <p>Or</p> */}
                     <div className="saveContainer">
-                    <button onClick={handleSaveDiveButton} id="saveDiveButton" className="option2">
-                      Save This Dive
-                    </button>
+                      <button
+                        onClick={handleSaveDiveButton}
+                        id="saveDiveButton"
+                        className="option2"
+                      >
+                        Save This Dive
+                      </button>
                     </div>
                   </div>
                 </div>
                 {/* Conditionally render the enter your name input if the user decides to save their first dive data.  */}
                 {saveDiveButton ? (
                   <>
-                  <div className="saveInfo">
-                    <h3>Save This Dive:</h3>
-                    <label htmlFor="name" className="label">
-                      Enter Your Name:
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="name"
-                      value={props.name}
-                      onChange={handleInputChange}
-                      placeholder="Your Name"
-                      required
-                    />
-                    <input type="submit" value="Save" id="submit" className="option" />
-                  </div>
-                  <div className="viewDives">
-                    <h3>View All Saved Dives:</h3>
-                    <Link to="/diveBook">
-                      <p className="option2">Click Here</p>
-                    </Link>
-
-                  </div>
-                    </>
+                    <div className="saveInfo">
+                      <h3>Save This Dive:</h3>
+                      <label htmlFor="name" className="label">
+                        Enter Your Name:
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        className="name"
+                        value={props.name}
+                        onChange={handleInputChange}
+                        placeholder="Your Name"
+                        required
+                      />
+                      <input
+                        type="submit"
+                        value="Save"
+                        id="submit"
+                        className="option"
+                      />
+                    </div>
+                    <div className="viewDives">
+                      <h3>View All Saved Dives:</h3>
+                      <Link to="/diveBook">
+                        <p className="option2">Click Here</p>
+                      </Link>
+                    </div>
+                  </>
                 ) : null}
               </>
             ) : null}

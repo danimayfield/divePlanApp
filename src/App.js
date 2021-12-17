@@ -137,6 +137,7 @@ function App() {
         <Route 
         path="/secondDive" 
         element={<SecondDivePlan 
+          decoLimit={decoLimit}
           setSurfaceInterval={setSurfaceInterval}
           surfaceInterval={surfaceInterval}
           name={name}

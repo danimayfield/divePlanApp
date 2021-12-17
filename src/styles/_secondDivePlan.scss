@@ -1,0 +1,127 @@
+.secondDivePlanContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading {
+    width: 50%;
+    background-color: #02304750;
+    border-radius: 10px;
+    p{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.planGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.6%;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 2%;
+    justify-content: center;
+    align-content: center;
+    margin-top: 1%;
+}
+
+.surfaceInterval {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #02304750;
+    border-radius: 10px;
+    margin-left: 1%;
+    padding-bottom: 4vh;
+    .optionLarge {
+        width: 10vw;
+    }
+}
+
+.deco {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #02304750;
+    border-radius: 10px;
+    margin-right: 1%;
+    padding-bottom: 4vh;
+    p{
+        text-align: center;
+        padding: 0 2rem;
+    }
+    .redirectButtons {
+        display: flex;
+        .button2 {
+            margin: 0 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+            width: 20vw;
+            border: 2px solid $orangePeel;
+            border-radius: 5px;
+            padding: 0.6rem;
+            background-color: #02304720;
+            color: white;
+            font-family: "Nunito", sans-serif;
+            transition: all 0.5s ease;
+        }
+        
+        .button2:hover {
+          background-color: #ffb70360;
+        }
+    }
+}
+
+.depthChoice {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #02304750;
+    border-radius: 10px;
+    margin-right: 1%;
+}
+
+.timeChoice {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #02304750;
+    border-radius: 10px;
+    margin-left: 1%;
+    padding-bottom: 4vh;
+    .timeOptionButtons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.diveInfo {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #02304750;
+    border-radius: 10px;
+    margin-right: 1%;
+    padding-bottom: 4vh;
+    p {
+        margin-top: 1rem;
+    }
+}
+
+.saveSecondDiveInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .saveSpace {
+        margin-top: 1rem;
+    }
+}
+
+.decoDiveInfo {
+    p{
+        text-align: center;
+        margin: 1rem 2rem;
+    }
+}

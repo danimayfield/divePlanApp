@@ -1,11 +1,12 @@
 .divePlanWrapper {
-    margin-top: -8vh; 
+    margin-top: -8vh;
+    padding-bottom: 8vh;
 }
 .divePlanContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 0.6%;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     row-gap: 2%;
     justify-content: center;
     align-content: center;
@@ -91,9 +92,15 @@
     align-items: center;
     margin-left: 1%;
     padding-bottom: 3vh;
-    .name {
-        margin: 1rem;
-    }
+}
+
+.name {
+    margin: 1rem;
+    background-color: #02304720;
+    border: 2px solid $orangePeel;
+    border-radius: 5px;
+    color: white;
+    padding: 0.3rem;
 }
 
 .viewDives {
@@ -104,3 +111,4 @@
     align-items: center;
     margin-right: 1%;
 }
+
