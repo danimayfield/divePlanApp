@@ -6,6 +6,17 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
+// Colour Scheme
+$darkest: #023047;
+$darkBlue: #1b4965;
+$blue: #5fa8d3;
+$teal: #62b6cb;
+$lightTeal: #BEE9E8;
+$lightest: #cae9ff;
+$orangePeel: #fd9e02;
+$yellowHoney: #ffb703;
+
+
 html {
     color: white;
     font-size: 16px;
@@ -30,6 +41,14 @@ h1 {
 }
 
 h2 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 3.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+h3 {
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-size: 2rem;
@@ -37,17 +56,80 @@ h2 {
     text-align: center;
 }
 
+p{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+}
+
 a{
  text-decoration: none;
  color: white;
+ transition: color 0.3s ease;
+}
+a:hover {
+    color: $yellowHoney;
+}
+
+button {
+    text-align: center;
+    font-size: 1.5rem;
+    width: 15vw;
+    border: 2px solid $orangePeel;
+    border-radius: 5px;
+    padding: 0.6rem;
+    background-color: #02304720;
+    color: white;
+    font-family: 'Nunito', sans-serif;
 }
 
 .button {
     text-align: center;
-    width: 5vw;
-    border: 2px solid #FD9E02;
+    font-size: 1.5rem;
+    color: white;
+    width: 15vw;
+    border: 2px solid $orangePeel;
     border-radius: 5px;
     padding: 0.6rem;
     background-color: #02304720;
+    transition: all 0.5s ease;
 }
+
+.button:hover {
+    background-color: #ffb70360;
+}
+
+.option {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    font-size: 1.2rem;
+    text-align: center;
+    color: white;
+    width: 6vw;
+    margin: 0.3rem;
+    border: 2px solid $orangePeel;
+    border-radius: 5px;
+    background-color: #02304720;
+    transition: all 0.5s ease;
+}
+
+.option:hover {
+    background-color: #ffb70360;
+    cursor: pointer;
+}
+
+.label {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+}
+
+.visuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
 

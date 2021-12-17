@@ -92,7 +92,7 @@ function App() {
     const decoLimitStringF = () => {
       if (decoLimit === true) {
         setDecoLimitString(
-          "For this dive: You've surpassed the no-decompression limit for this dive depth, either reduce your time underwater, reduce your depth or prepare to make time for extra decompression stops depending on how long you exceed your limit. Proceed with caution if you decide to move forward with this dive."
+          "**CAUTION**: You've surpassed the no-decompression limit for this dive depth, either reduce your time underwater, reduce your depth or prepare to make time for extra decompression stops depending on how long you exceed your limit. Proceed with caution if you decide to move forward with this dive, we do not recommend you continue."
         );
       } else {
         setDecoLimitString("");
