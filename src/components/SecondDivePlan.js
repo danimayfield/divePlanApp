@@ -952,8 +952,11 @@ function SecondDivePlan(props) {
                     value={`${time} minutes`}
                     onClick={() => {
                       props.setSurfaceInterval(time);
+                      setInvervalActive(time);
                     }}
-                    className="option optionLarge"
+                    className={`option optionLarge ${
+                      intervalActive === time ? "active" : null
+                    }`}
                   />
                 </>
               );
@@ -990,8 +993,11 @@ function SecondDivePlan(props) {
                     value={`${depth}m`}
                     onClick={() => {
                       setDepthChoice2(depth);
+                      setDepthActive(depth)
                     }}
-                    className="option"
+                    className={`option ${
+                      depthActive === depth ? "active" : null
+                    }`}
                   />
                 );
               })}
@@ -1013,8 +1019,11 @@ function SecondDivePlan(props) {
                         value={`${time}mins`}
                         onClick={() => {
                           setTimeChoice2(time);
+                          setTimeActive(time);
                         }}
-                        className="option"
+                        className={`option ${
+                          timeActive === time ? "active" : null
+                        }`}
                       />
                     );
                   })}
