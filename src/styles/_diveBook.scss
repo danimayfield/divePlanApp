@@ -1,0 +1,66 @@
+.diveBookGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 1%;
+  grid-template-rows: 1fr;
+  row-gap: 0.5%;
+  padding: 0;
+  margin: 0 1%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #02304750;
+  border-radius: 10px;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.infoRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3vw;
+  grid-template-rows: 1fr;
+  .infoPiece {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    background-color: #02304750;
+    border-radius: 10px;
+    width: 6vw;
+    p {
+      margin: 0;
+      padding: 0.5rem 0;
+      font-weight: 400;
+    }
+  }
+}
+.infoPiece2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin:0;
+  background-color: #02304750;
+  border-radius: 10px;
+  margin: 0.5rem 0;
+  width: 80%;
+  p{
+      margin:0;
+      padding:0.5rem 0;
+      font-weight: 400;
+  }
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+

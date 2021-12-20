@@ -30,25 +30,49 @@ function DiveBook() {
   return (
     <div>
       <h2>All Dive Plans</h2>
-      <ul>
+      <ul className="diveBookGrid">
         {
           //  Map through the diveBook state array and use the information gathered below:
           diveBook.map((dive, index) => {
             return (
-              <li key={index}>
+              <li key={index} className="card">
                 <h3>{dive.name}'s Dive Plan:</h3>
+                <h4>{dive.name}'s First Dive:</h4>
+                <div className="infoRow">
+                  <div className="infoPiece">
+                    <p>Depth:</p>
+                    <p>{dive.depth} m</p>
+                  </div>
+                  <div className="infoPiece">
+                    <p>Time:</p>
+                    <p>{dive.time} mins</p>
+                  </div>
+                </div>
                 <p>
-                  {dive.name} plans to dive to {dive.depth} metres for {dive.time} minutes
+                  <strong>Safety Stop:</strong> {dive.safetyStop}
                 </p>
-                <p>Safety Stop: {dive.safetyStop}</p>
                 <p>{dive.decoLimit}</p>
                 {dive.depth2 ? (
-                  <div>
-                    <h4>{dive.name}'s second dive:</h4>
+                  <div className="flex">
+                    <h4>{dive.name}'s Second Dive:</h4>
+                    <div className="infoPiece2 ">
+                      <p>Surface Interval:</p>
+                      <p>{dive.surfaceInterval} mins</p>
+                    </div>
+                    <div className="infoRow">
+                      <div className="infoPiece">
+                        <p>Depth:</p>
+                        <p>{dive.depth2} m</p>
+                      </div>
+                      <div className="infoPiece">
+                        <p>Time:</p>
+                        <p>{dive.time2} mins</p>
+                      </div>
+                    </div>
                     <p>
-                      After a surface interval of {dive.surfaceInterval} minutes, {dive.name} plans to dive to {dive.depth2} metres for {dive.time2} minutes
+                      <strong>Safety Stop:</strong> You should make a safety stop for 3 minutes (minimum) at 5
+                      metres on this dive
                     </p>
-                    <p>You should make a safety stop for 3 minutes (minimum) at 5 metres on this dive</p>
                   </div>
                 ) : null}
               </li>
