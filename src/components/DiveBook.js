@@ -6,8 +6,6 @@ function DiveBook() {
   // Set state to hold the array of dives
   const [diveBook, setDiveBook] = useState([]);
   // state to hold whether the see more button has been clicked.
-  const [reveal, setReveal] = useState(0);
-
   const [selectedIds, setSelectedIds] = useState([]);
   
 
@@ -31,9 +29,6 @@ function DiveBook() {
       setDiveBook(newArray);
     });
   }, []);
-
-
-  console.log(reveal);
 
   return (
     <div>
