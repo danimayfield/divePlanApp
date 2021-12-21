@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 function DiveBookCard({ dive, index, selectedIds, setSelectedIds }) {
