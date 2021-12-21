@@ -1,10 +1,15 @@
 import firebase from "../firebase";
 import { useState, useEffect } from "react";
+import DiveBookCard from "./DiveBookCard";
 
 function DiveBook() {
   // Set state to hold the array of dives
   const [diveBook, setDiveBook] = useState([]);
   // state to hold whether the see more button has been clicked.
+  const [reveal, setReveal] = useState(0);
+
+  const [selectedIds, setSelectedIds] = useState([]);
+  
 
   // Use effect to hold call to firebase database for information
   useEffect(() => {
@@ -27,58 +32,23 @@ function DiveBook() {
     });
   }, []);
 
+
+  console.log(reveal);
+
   return (
     <div>
       <h2>All Dive Plans</h2>
-      <ul className="diveBookGrid">
+      <ul className="diveBookWrapper">
+        <div className="diveBookContainer">
         {
           //  Map through the diveBook state array and use the information gathered below:
           diveBook.map((dive, index) => {
             return (
-              <li key={index} className="card">
-                <h3>{dive.name}'s Dive Plan:</h3>
-                <h4>{dive.name}'s First Dive:</h4>
-                <div className="infoRow">
-                  <div className="infoPiece">
-                    <p>Depth:</p>
-                    <p>{dive.depth} m</p>
-                  </div>
-                  <div className="infoPiece">
-                    <p>Time:</p>
-                    <p>{dive.time} mins</p>
-                  </div>
-                </div>
-                <p>
-                  <strong>Safety Stop:</strong> {dive.safetyStop}
-                </p>
-                <p>{dive.decoLimit}</p>
-                {dive.depth2 ? (
-                  <div className="flex">
-                    <h4>{dive.name}'s Second Dive:</h4>
-                    <div className="infoPiece2 ">
-                      <p>Surface Interval:</p>
-                      <p>{dive.surfaceInterval} mins</p>
-                    </div>
-                    <div className="infoRow">
-                      <div className="infoPiece">
-                        <p>Depth:</p>
-                        <p>{dive.depth2} m</p>
-                      </div>
-                      <div className="infoPiece">
-                        <p>Time:</p>
-                        <p>{dive.time2} mins</p>
-                      </div>
-                    </div>
-                    <p>
-                      <strong>Safety Stop:</strong> You should make a safety stop for 3 minutes (minimum) at 5
-                      metres on this dive
-                    </p>
-                  </div>
-                ) : null}
-              </li>
+              <DiveBookCard dive={dive} index={index} selectedIds={selectedIds} setSelectedIds={setSelectedIds} />
             );
           })
         }
+        </div>
       </ul>
     </div>
   );
