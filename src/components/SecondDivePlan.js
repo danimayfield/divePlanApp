@@ -992,7 +992,7 @@ function SecondDivePlan(props) {
               </div>
             </div>
             {/* Conditionally render the time option only once the depth has been chosen */}
-            {depthChoice2 > 0 ? (
+            {(depthChoice2 > 0) && (props.surfaceInterval) ? (
               <>
                 <div className="timeChoice">
                   <h3>Choose Your Time:</h3>
