@@ -9,6 +9,7 @@
     width: 50%;
     background-color: #02304750;
     border-radius: 10px;
+    padding: 0 3%;
     p{
         width: 100%;
         text-align: center;
@@ -33,7 +34,12 @@
     background-color: #02304750;
     border-radius: 10px;
     margin-left: 1%;
-    padding-bottom: 4vh;
+    padding: 0 1% 5% 1%;
+    .surfaceIntervalOptions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
     .optionLarge {
         width: 10vw;
     }
@@ -46,7 +52,7 @@
     background-color: #02304750;
     border-radius: 10px;
     margin-right: 1%;
-    padding-bottom: 4vh;
+    padding: 0 1% 5% 1%;
     p{
         text-align: center;
         padding: 0 2rem;
@@ -80,6 +86,12 @@
     background-color: #02304750;
     border-radius: 10px;
     margin-right: 1%;
+    padding: 0 1%;
+    .depthOptionButtons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 .timeChoice {
@@ -89,7 +101,7 @@
     background-color: #02304750;
     border-radius: 10px;
     margin-left: 1%;
-    padding-bottom: 4vh;
+    padding: 0 1% 5% 1%;
     .timeOptionButtons {
         display: flex;
         flex-wrap: wrap;
@@ -104,8 +116,10 @@
     background-color: #02304750;
     border-radius: 10px;
     margin-right: 1%;
-    padding-bottom: 4vh;
+    padding: 0 1% 5% 1%;
     p {
+        width: 100%;
+        text-align: center;
         margin-top: 1rem;
     }
 }
@@ -120,8 +134,9 @@
 }
 
 .decoDiveInfo {
+    padding: 0 3%;
     p{
         text-align: center;
-        margin: 1rem 2rem;
+        width: 100%;
     }
 }

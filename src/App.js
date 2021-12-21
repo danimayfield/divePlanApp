@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { FiLinkedin, FiGithub, FiTwitter } from "react-icons/fi";
 
 import DivePlan from "./components/DivePlan";
 import DiveBook from "./components/DiveBook";
 import Landing from "./components/Landing";
 import SecondDivePlan from "./components/SecondDivePlan";
 
-import logo from "./assets/divePlanLogo.png"
+import logo from "./assets/divePlanLogo.png";
 
 function App() {
   // state to hold user depth choice
@@ -25,6 +26,12 @@ function App() {
   const [decoLimitString, setDecoLimitString] = useState("");
   // state to hold the surface interval choice
   const [surfaceInterval, setSurfaceInterval] = useState(0);
+  // array of depth options
+  const depthOptions = [10, 14, 18, 22, 25, 30];
+  // array of time spent underwater options
+  const timeUnderwater = [
+    10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160,
+  ];
 
   useEffect(() => {
     //   function to check if a safety stop is required:
@@ -123,30 +130,56 @@ function App() {
         <Route path="/*" element={<Landing />} />
         <Route
           path="divePlan"
-          element={<DivePlan
-            depthChoice={depthChoice}
-            timeChoice={timeChoice}
-            setDepthChoice={setDepthChoice}
-            setTimeChoice={setTimeChoice}
-            safetyStopString={safetyStopString}
-            name={name} 
-            setName={setName}
-            decoLimit={decoLimit}
-            decoLimitString={decoLimitString} />} />
+          element={
+            <DivePlan
+              depthChoice={depthChoice}
+              timeChoice={timeChoice}
+              setDepthChoice={setDepthChoice}
+              setTimeChoice={setTimeChoice}
+              safetyStopString={safetyStopString}
+              name={name}
+              setName={setName}
+              decoLimit={decoLimit}
+              decoLimitString={decoLimitString}
+              depthOptions={depthOptions}
+              timeUnderwater={timeUnderwater}
+            />
+          }
+        />
         <Route path="diveBook" element={<DiveBook />} />
-        <Route 
-        path="/secondDive" 
-        element={<SecondDivePlan 
-          decoLimit={decoLimit}
-          setSurfaceInterval={setSurfaceInterval}
-          surfaceInterval={surfaceInterval}
-          name={name}
-          setName={setName}
-          timeChoice={timeChoice}
-          depthChoice={depthChoice}
-          safetyStopString={safetyStopString}
-          decoLimitString={decoLimitString} />} />
+        <Route
+          path="/secondDive"
+          element={
+            <SecondDivePlan
+              decoLimit={decoLimit}
+              setSurfaceInterval={setSurfaceInterval}
+              surfaceInterval={surfaceInterval}
+              name={name}
+              setName={setName}
+              timeChoice={timeChoice}
+              depthChoice={depthChoice}
+              safetyStopString={safetyStopString}
+              decoLimitString={decoLimitString}
+              depthOptions={depthOptions}
+              timeUnderwater={timeUnderwater}
+            />
+          }
+        />
       </Routes>
+      <footer>
+        <div className="icons">
+          <a href="https://www.linkedin.com/in/daniella-mayfield-5a6a99222/">
+            <FiLinkedin />
+          </a>
+          <a href="https://github.com/danimayfield">
+            <FiGithub />
+          </a>
+          <a href="https://twitter.com/danimayf">
+            <FiTwitter />
+          </a>
+        </div>
+        <p>Developed by Dani Mayfield 2021</p>
+      </footer>
     </BrowserRouter>
   );
 }

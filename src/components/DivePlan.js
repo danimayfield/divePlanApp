@@ -2,6 +2,9 @@ import { useState } from "react";
 import firebase from "../firebase";
 import { Link } from "react-router-dom";
 
+import Options from "./DepthOptions";
+import Options2 from "./TimeOptions";
+
 function DivePlan(props) {
   // State to hold whether the user selected to save their dive information or not
   const [saveDiveButton, setSaveDiveButton] = useState(false);
@@ -10,12 +13,6 @@ function DivePlan(props) {
   // State to hold which button has been chosen for the time
   const [timeActive, setTimeActive] = useState("");
 
-  // array of depth options
-  const depthOptions = [10, 14, 18, 22, 25, 30];
-  // array of time spent underwater options
-  const timeUnderwater = [
-    10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160,
-  ];
 
   // function to handle what happens when a user clicks to save their dive
   const handleSaveDiveButton = () => {
@@ -69,33 +66,20 @@ function DivePlan(props) {
   };
 
   return (
-    <div className="divePlanWrapper">
+    <div className="divePlanWrapper wrapper">
       <h2>Plan your first dive!</h2>
       <form onSubmit={handleFormSubmit} className="divePlanContainer">
         <div className="depth">
           <h3>Choose Your Depth:</h3>
           {/* map through the depthOptions array and return each option as a button */}
           <div className="depthButtons">
-            {depthOptions.map((depth) => {
+            {props.depthOptions.map((depth) => {
               return (
-                <>
-                  <label htmlFor={`${depth}m`} className="visuallyHidden">
-                    {depth}m
-                  </label>
-                  <input
-                    key={depth}
-                    type="button"
-                    id={`${depth}m`}
-                    value={`${depth}m`}
-                    onClick={() => {
-                      props.setDepthChoice(depth);
-                      setDepthActive(depth);
-                    }}
-                    className={`option ${
-                      depthActive === depth ? "active" : null
-                    }`}
-                  />
-                </>
+                <Options
+                  depth={depth}
+                  setDepthChoice={props.setDepthChoice}
+                  setDepthActive={setDepthActive}
+                  depthActive={depthActive} />
               );
             })}
           </div>
@@ -107,26 +91,13 @@ function DivePlan(props) {
               <h3>Choose Your Time:</h3>
               {/* map through the timeUnderwater array and return each option as a button */}
               <div className="timeOptions">
-                {timeUnderwater.map((time) => {
+                {props.timeUnderwater.map((time) => {
                   return (
-                    <>
-                      <label htmlFor={`${time}mins`} className="visuallyHidden">
-                        {time}mins
-                      </label>
-                      <input
-                        key={time}
-                        type="button"
-                        id={`${time}mins`}
-                        value={`${time}mins`}
-                        onClick={() => {
-                          props.setTimeChoice(time);
-                          setTimeActive(time);
-                        }}
-                        className={`option ${
-                          timeActive === time ? "active" : null
-                        }`}
-                      />
-                    </>
+                    <Options2
+                      time={time}
+                      setTimeChoice={props.setTimeChoice}
+                      setTimeActive={setTimeActive}
+                      timeActive={timeActive} />
                   );
                 })}
               </div>
@@ -152,13 +123,11 @@ function DivePlan(props) {
                         Reset
                       </p>
                     </Link>
-                    {/* <p>Or</p> */}
                     <Link to="/secondDive">
                       <p className="option2" onClick={handleSecondDiveButton}>
                         Plan A Second Dive
                       </p>
                     </Link>
-                    {/* <p>Or</p> */}
                     <div className="saveContainer">
                       <button
                         onClick={handleSaveDiveButton}

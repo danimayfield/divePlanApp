@@ -31,7 +31,7 @@ function DiveBook() {
   }, []);
 
   return (
-    <div>
+    <div className="wrapper">
       <h2>All Dive Plans</h2>
       <ul className="diveBookWrapper">
         <div className="diveBookContainer">

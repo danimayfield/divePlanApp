@@ -14,20 +14,27 @@ function DiveBookCard({ dive, index, selectedIds, setSelectedIds }) {
             // If the index is not already included in the array then add the new index to the array.
             setSelectedIds([...selectedIds, index])
         }
-        
+
     }
 
 
     return (
-        <li key={index} className="card" onClick={() => checkIfIdExists(index)}>
+        <li
+            key={index}
+            className="card"
+            tabindex="0"
+            role="button"
+            aria-label="click to see more information"
+            onClick={() => checkIfIdExists(index)}
+            onKeyUp={ console.log("did it!") }>
             <h3>{dive.name}'s Dive Plan:</h3>
             <i
                 id={index}
             >
                 {selectedIds.includes(index) ? <IoIosArrowUp /> : <IoIosArrowDown />
                 }
-                
-                
+
+
             </i>
             {selectedIds.includes(index) ? (
                 <>

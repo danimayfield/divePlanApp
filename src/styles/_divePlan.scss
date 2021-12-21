@@ -19,6 +19,11 @@
     background-color: #02304750;
     border-radius: 10px;
     margin-left: 1%;
+    .depthButtons {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 .time {

@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../firebase";
 
+import DepthOptions2 from "./DepthOptions2";
+import TimeOptions2 from "./TimeOptions2";
+
 function SecondDivePlan(props) {
   // State to hold the user's pressure group
   const [pressureGroup, setPressureGroup] = useState("");
@@ -13,21 +16,15 @@ function SecondDivePlan(props) {
   const [timeChoice2, setTimeChoice2] = useState(0);
   // State to hold whether the user selected to save their dive information or not
   const [saveDive2Button, setSaveDive2Button] = useState(false);
-    // State to hold which button has been chosen for the depth
-    const [depthActive, setDepthActive] = useState("");
-    // State to hold which button has been chosen for the time
-    const [timeActive, setTimeActive] = useState("");
-    // State to hold which button has been chosen for the surface interval
-    const [intervalActive, setInvervalActive] = useState("")
+  // State to hold which button has been chosen for the depth
+  const [depthActive, setDepthActive] = useState("");
+  // State to hold which button has been chosen for the time
+  const [timeActive, setTimeActive] = useState("");
+  // State to hold which button has been chosen for the surface interval
+  const [intervalActive, setInvervalActive] = useState("")
 
   // Array of time options for surface interval
   const surfaceIntervalOptions = [60, 120, 180];
-  // array of depth options
-  const depthOptions = [10, 14, 18, 22, 25, 30];
-  // array of time spent underwater options
-  const timeUnderwater = [
-    10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160,
-  ];
   //   String to be displayed on the page if the user surpasses their deco limit
   const decoString =
     "Based on your depth and time spent underwater on your first dive, the diver should remain out of the water for a minimum of 6 hours before attempting another dive. This is because you have surpassed your no-decompression limit.";
@@ -926,37 +923,36 @@ function SecondDivePlan(props) {
   };
 
   return (
-    <div className="secondDivePlanContainer">
+    <div className="secondDivePlanContainer wrapper">
       <div className="heading">
         <h2>Second Dive Plan</h2>
-        <h3>Your first dive:</h3>
+        <h3>Your First Dive:</h3>
         <p>
-          Will be {props.timeChoice} minutes long {props.depthChoice} metres
+          Will be {props.timeChoice} minutes long, {props.depthChoice} metres
           underwater.
         </p>
       </div>
 
       <form onSubmit={handleFormSubmit} className="planGrid">
         <div className="surfaceInterval">
-          <h3>How long will your surface interval be after your first dive?</h3>
+          <h3>How Long Will Your Surface Interval Be After Your First Dive?</h3>
           <div className="surfaceIntervalOptions">
             {surfaceIntervalOptions.map((time) => {
               return (
                 <>
-                  <label htmlFor={`${time}min`} className="visuallyHidden">
+                  <label htmlFor={`${time}min3`} className="visuallyHidden">
                     {time} minutes
                   </label>
                   <input
-                    id={`${time}min`}
+                    id={`${time}min3`}
                     type="button"
                     value={`${time} minutes`}
                     onClick={() => {
                       props.setSurfaceInterval(time);
                       setInvervalActive(time);
                     }}
-                    className={`option optionLarge ${
-                      intervalActive === time ? "active" : null
-                    }`}
+                    className={`option optionLarge ${intervalActive === time ? "active" : null
+                      }`}
                   />
                 </>
               );
@@ -970,7 +966,7 @@ function SecondDivePlan(props) {
             <p>{decoString}</p>
             <div className="redirectButtons">
               <Link to="divePlan">
-                <p className="button2">Plan your first dive again</p>
+                <p className="button2">Redo Your First Dive</p>
               </Link>
               <Link to="diveBook">
                 <p className="button2">View Dive Book</p>
@@ -978,62 +974,46 @@ function SecondDivePlan(props) {
             </div>
           </div>
         ) : null}
-        {props.surfaceInterval ? (
+        {(props.surfaceInterval) && (pressureGroup !== "deco") ? (
           <>
             <div className="depthChoice">
-              <h3>How deep will your second dive be?</h3>
-              <div>
+              <h3>How Deep Will Your Second Dive Be?</h3>
+              <div className="depthOptionButtons">
                 {/* map through the depth array and return each option as a button */}
-              {depthOptions.map((depth) => {
-                return (
-                  <input
-                    key={depth}
-                    type="button"
-                    id={`${depth}m`}
-                    value={`${depth}m`}
-                    onClick={() => {
-                      setDepthChoice2(depth);
-                      setDepthActive(depth)
-                    }}
-                    className={`option ${
-                      depthActive === depth ? "active" : null
-                    }`}
-                  />
-                );
-              })}
+                {props.depthOptions.map((depth) => {
+                  return (
+                    <DepthOptions2
+                      depth={depth}
+                      setDepthChoice2={setDepthChoice2}
+                      setDepthActive={setDepthActive}
+                      depthActive={depthActive} />
+                  );
+                })}
               </div>
             </div>
             {/* Conditionally render the time option only once the depth has been chosen */}
             {depthChoice2 > 0 ? (
               <>
                 <div className="timeChoice">
-                  <h3>Choose your time:</h3>
+                  <h3>Choose Your Time:</h3>
                   <div className="timeOptionButtons">
-                  {/* map through the timeUnderwater array and return each option as a button */}
-                  {timeUnderwater.map((time) => {
-                    return (
-                      <input
-                        key={time}
-                        type="button"
-                        id={`${time}mins`}
-                        value={`${time}mins`}
-                        onClick={() => {
-                          setTimeChoice2(time);
-                          setTimeActive(time);
-                        }}
-                        className={`option ${
-                          timeActive === time ? "active" : null
-                        }`}
-                      />
-                    );
-                  })}
+                    {/* map through the timeUnderwater array and return each option as a button */}
+                    {props.timeUnderwater.map((time) => {
+                      return (
+                        <TimeOptions2
+                          time={time}
+                          setTimeChoice2={setTimeChoice2}
+                          setTimeActive={setTimeActive}
+                          timeActive={timeActive} />
+                      );
+                    })}
                   </div>
                 </div>
                 {/* Conditionally render the deco string if necessary again if the user surpasses their deco limit on their second dive. If they don't surpass it, allow them to continue to save their dive to the database */}
                 {timeChoice2 > 0 ? (
                   <>
                     <div className="diveInfo">
-                      <h3>For your dive:</h3>
+                      <h3>For Your Dive:</h3>
                       {/* Conditionally render the deco limit string if the user chooses a dive plan that surpasses their no decompression limit */}
                       {dive2DecoLimit === true || pressureGroup === "deco" ? (
                         <div className="decoDiveInfo">
@@ -1055,19 +1035,19 @@ function SecondDivePlan(props) {
                           {saveDive2Button ? (
                             <div className="saveSecondDiveInfo" >
                               <div className="saveSpace">
-                              <label htmlFor="name" className="label">
-                                Enter Your Name:
-                              </label>
-                              <input
-                                type="text"
-                                id="name"
-                                className="name"
-                                value={props.name}
-                                onChange={handleInputChange}
-                                placeholder="Your Name"
-                                required
-                              />
-                              <input type="submit" value="Save" id="submit" className="option" />
+                                <label htmlFor="name" className="label">
+                                  Enter Your Name:
+                                </label>
+                                <input
+                                  type="text"
+                                  id="name"
+                                  className="name"
+                                  value={props.name}
+                                  onChange={handleInputChange}
+                                  placeholder="Your Name"
+                                  required
+                                />
+                                <input type="submit" value="Save" id="submit" className="option" />
                               </div>
                               <Link to="/diveBook">
                                 <p className="button">View Your Dives</p>
@@ -1082,7 +1062,7 @@ function SecondDivePlan(props) {
               </>
             ) : null}
           </>
-        ): null}
+        ) : null}
       </form>
     </div>
   );

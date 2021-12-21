@@ -1,0 +1,251 @@
+@media all and (max-width: 1500px) {
+  // Dive plan page
+  .optionWidth {
+    width: 10vw;
+  }
+}
+
+@media all and (max-width: 1250px) {
+  // Dive plan page
+  .optionButtons {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+  .option2 {
+    width: 98%;
+  }
+
+  // Second Dive Plan Page
+  .option {
+    width: 10vw;
+  }
+  .surfaceInterval {
+    .optionLarge {
+      width: 20vw;
+    }
+  }
+
+  .diveInfo {
+    button {
+      width: 30vw;
+    }
+    .button {
+      width: 30vw;
+      margin-top: 3rem;
+    }
+  }
+
+  .deco {
+    .redirectButtons {
+      flex-direction: column;
+      .button2 {
+        width: 100%;
+        margin: 2% 0;
+      }
+    }
+  }
+
+  // DiveBook
+  .infoRow {
+    .infoPiece {
+      width: 10vw;
+    }
+  }
+}
+
+@media all and (max-width: 1000px) {
+  // Second Dive Plan Page
+  .saveSecondDiveInfo {
+    .saveSpace {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  // DiveBook
+  .diveBookContainer {
+    justify-content: center;
+  }
+}
+
+@media all and (max-width: 850px) {
+  // nav bar
+  header {
+    ul {
+      flex-direction: column;
+      width: 60vw;
+      li {
+        margin: 0.5rem 1rem;
+        text-align: right;
+      }
+    }
+    img {
+      width: 50%;
+    }
+  }
+  // landing page
+  .buttonWidth {
+    width: 25vw;
+  }
+  // Dive plan page
+  .divePlanWrapper {
+    margin-top: -2vh;
+    padding-bottom: 2vh;
+  }
+  .divePlanContainer {
+    grid-template-columns: 1fr;
+  }
+  .depth {
+    margin: 0 1%;
+  }
+  .time {
+    margin: 0 1%;
+    padding-bottom: 2vh;
+  }
+  .decoSafeteyInfo {
+    margin: 0 1%;
+    padding-bottom: 2vh;
+  }
+  .options {
+    margin: 0 1%;
+    padding-bottom: 2vh;
+  }
+  .saveInfo {
+    margin: 0 1%;
+  }
+  .viewDives {
+    margin: 0 1%;
+    padding-bottom: 2vh;
+  }
+
+  // Second Dive Plan Page
+  .heading {
+    width: 70%;
+  }
+  .option {
+    width: 13vw;
+  }
+
+  // DiveBook
+  .infoRow {
+    .infoPiece {
+      width: 15vw;
+    }
+  }
+}
+
+@media all and (max-width: 650px) {
+  // Nav
+  header {
+    img {
+      width: 70%;
+    }
+  }
+  // landing page
+  .landingContainer {
+    h1 {
+      font-size: 4rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  // Dive Plan page
+  .optionWidth {
+    width: 20vw;
+  }
+
+  // Second Dive Plan Page
+  .heading {
+    width: 80%;
+  }
+  .planGrid {
+    grid-template-columns: 1fr;
+    margin-top: 5vh;
+  }
+  .surfaceInterval {
+    margin: 0 1%;
+    .optionLarge {
+      width: 40vw;
+    }
+  }
+  .deco {
+    margin: 0 1%;
+  }
+  .depthChoice {
+    margin: 0 1%;
+    padding-bottom: 2vh;
+  }
+  .timeChoice {
+    margin: 0 1%;
+  }
+  .diveInfo {
+    margin: 0 1%;
+    .button {
+      width: 60vw;
+    }
+    button {
+      width: 60vw;
+    }
+  }
+  .option {
+    width: 20vw;
+  }
+}
+
+@media all and (max-width: 500px) {
+  // DiveBook
+  .infoRow {
+    .infoPiece {
+      width: 25vw;
+    }
+  }
+}
+
+@media all and (max-width: 420px) {
+  // landing page
+  .landingContainer {
+    h1 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+  }
+  .buttonWidth {
+    width: 45vw;
+  }
+
+  // Dive Plan page
+  .planGrid {
+    margin-top: 8vh;
+  }
+  .option {
+    width: 30vw;
+  }
+  .optionWidth {
+    width: 26vw;
+  }
+
+  // Second Dive Plan Page
+  .heading {
+    h2 {
+      font-size: 2.8rem;
+    }
+    h3 {
+      font-size: 1.7rem;
+    }
+  }
+  .diveInfo {
+    .button {
+      width: 70vw;
+    }
+  }
+
+  // DiveBook
+  .infoRow {
+    .infoPiece {
+      width: 30vw;
+    }
+  }
+}
