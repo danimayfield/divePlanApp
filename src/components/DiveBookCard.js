@@ -17,6 +17,14 @@ function DiveBookCard({ dive, index, selectedIds, setSelectedIds }) {
 
     }
 
+    const toggleCardAccessible = (event, index) => {
+        // If statement to check if the user clicked the enter key
+        if (event.key === "Enter") {
+            checkIfIdExists(index)
+        }
+
+    }
+
 
     return (
         <li
@@ -24,9 +32,9 @@ function DiveBookCard({ dive, index, selectedIds, setSelectedIds }) {
             className="card"
             tabindex="0"
             role="button"
-            aria-label="click to see more information"
+            aria-label={`${dive.name}'s Dive Plan - Click to see more information`}
             onClick={() => checkIfIdExists(index)}
-            onKeyUp={ console.log("did it!") }>
+            onKeyUp={ (event) => toggleCardAccessible(event, index) }>
             <h3>{dive.name}'s Dive Plan:</h3>
             <i
                 id={index}
