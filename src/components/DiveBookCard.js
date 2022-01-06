@@ -33,8 +33,8 @@ function DiveBookCard({ dive, index, selectedIds, setSelectedIds }) {
             tabindex="0"
             role="button"
             aria-label={`${dive.name}'s Dive Plan - Click to see more information`}
-            onClick={() => checkIfIdExists(index)}
             onKeyUp={ (event) => toggleCardAccessible(event, index) }>
+            onClick={() => checkIfIdExists(index)}
             <h3>{dive.name}'s Dive Plan:</h3>
             <i
                 id={index}
