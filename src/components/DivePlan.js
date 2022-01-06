@@ -53,7 +53,6 @@ function DivePlan(props) {
 
   // function to refresh page
   const refreshPage = () => {
-    // window.location.reload();
     props.setDepthChoice(0)
     setDepthActive("")
     props.setTimeChoice(0)
