@@ -129,7 +129,7 @@ function App() {
       <Routes>
         <Route path="/*" element={<Landing />} />
         <Route
-          path="divePlan"
+          path="/divePlan"
           element={
             <DivePlan
               depthChoice={depthChoice}
