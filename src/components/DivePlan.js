@@ -53,7 +53,12 @@ function DivePlan(props) {
 
   // function to refresh page
   const refreshPage = () => {
-    window.location.reload();
+    // window.location.reload();
+    props.setDepthChoice(0)
+    setDepthActive("")
+    props.setTimeChoice(0)
+    setTimeActive("")
+
   };
 
   // function to handle what happens when a user clicks to plan a second dive
